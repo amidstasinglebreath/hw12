@@ -25,13 +25,13 @@ $(function() {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
-    var newCat = {
+    var newBurger = {
       name: $("#ca").val().trim(),
-      sleepy: $("[name=sleepy]:checked").val().trim()
+      vegan: $("[name=sleepy]:checked").val().trim()
     };
 
     // Send the POST request.
-    $.ajax("/api/cats", {
+    $.ajax("/api/burgers", {
       type: "POST",
       data: newBurger
     }).then(
@@ -51,7 +51,7 @@ $(function() {
       type: "DELETE"
     }).then(
       function() {
-        console.log("Burger Devoured", id);
+        console.log("Burger Deleted", id);
         // Reload the page to get the updated list
         location.reload();
       }
